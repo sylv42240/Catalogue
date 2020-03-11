@@ -7,7 +7,7 @@
 //
 
 import UIKit
-class ViewController: UIViewController {
+class MainViewController: UIViewController {
     var ascending = false
     var dataManager: CoreDataManager{
         get{
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource{
+extension MainViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -63,7 +63,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource{
     }
 }
 
-extension ViewController: UISearchBarDelegate {
+extension MainViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if let items = dataManager.loadItems(searchQuery: searchText){
             self.items = items
