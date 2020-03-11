@@ -47,8 +47,13 @@ extension FilterViewController{
 extension FilterViewController: SortViewControllerDelegate{
     func sortViewController(_ controller: SortViewController, sortWith: String, sortCase: String) {
         controller.dismiss(animated: true)
-        
-        self.sortedBy = sortWith
-        sortLabel.text = sortWith
+        if (sortCase == "sortBy") {
+            self.sortedBy = sortWith
+            sortLabel.text = sortWith
+        }
+        if (sortCase == "groupBy") {
+            self.groupedBy = sortWith
+            groupLabel.text = sortWith
+        }
     }
 }
